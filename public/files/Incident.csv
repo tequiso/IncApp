@@ -1,0 +1,9 @@
+raisedby,caseworker,contactnum,teamleader,team,location,area,srnumber,srstatus,srsubstatus,bginfo,error_msg,subarea
+Virat,Shoaib,34534535435,Sourav,Entsol,Newcastle,NEW,1-353452344,Error,Technical,MOPF payment profile setup,Error while setting up payment profile,MOPF
+Mahi,Wilson,54645645745,Sachin,EAS,Plymoth,PLY,1-353452864,Error,Critical Technical,Annual Review process,Error while doing Annual Review,Annual Review
+Shane,Taylor,34534573854,Laxman,FS,Hasting,HAS,1-359852344,Error,Critical Technical,CoC Update Contact,Error in update contact,Person Update
+Watson,Ley,97489534533,Sourav,Entsol,Longbenton,LNG,1-354452344,Error,Technical,ARR batch job,Batch job failed,ARR
+Imran,Emma,43495734535,Sachin,EAS,Dudley,DUD,1-353499344,Error,Technical,Annual Review process,Error in AR,Annual Review
+Waseem,Ellie,34934535345,Laxman,FS,Newcastle,NEW,1-353452334,Error,Technical,Case Setup,Error in case setup,Case
+David,Morgan,34534534534,Sourav,Entsol,Plymoth,PLY,1-983452344,Error,Critical Technical,Security is not being set,Error in security setup,Security Setup
+Rudra,Kaavi,34534535435,Sailesh,FS,Plymoth,PLY,1-353112344,Error,Technical,MOPT payment profile setup,Error while setting up payment profile,POCA

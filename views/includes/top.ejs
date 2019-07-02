@@ -1,0 +1,37 @@
+<script src="../../javascripts/jquery-3.3.1.min.js"></script>
+<script>
+  var queryString = location.search;
+  var userName = queryString.split('=').pop();
+  if(userName == "" || userName == null || userName =="undefined")
+  {
+    document.getElementById("x").innerHTML = "Incident Management Tool: Welcome User";
+  }
+  else 
+  {
+    document.getElementById("x").innerHTML = "Incident Management Tool: Welcome " + userName;
+  }
+</script>
+  
+  <div class="header">
+  <div class="banner">
+    <div class="bannerLeft">
+      <div class="bannerTitle" id="x">Incident Management Tools: Welcome <%= userName %></div>
+      <div class="subTitle">Powered by TCS</div>    
+    </div>
+  </div>
+  <div class="nav">
+    <div class="topnav">
+      <a class="active" href="/home">Home</a>
+      <a href="/create">Create New Incident</a>
+      <a href="/incident/:page">Open Incidents</a>
+      <a href="/ply">PLY</a>
+      <a href="/has">HAS</a>      
+      <a href="/search">Search</a>
+      <a href="/pattern">Pattern Matching</a>
+      <a href="/import">Import Incidents</a>
+      <a href="/export">Export</a>
+      <input type="text" placeholder="Site Search..." />
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Incident Management Tool</title>
+	<link href="../stylesheets/mainsks.css" rel="stylesheet">    
+    <!--link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
+    <script src="../javascripts/jquery-3.3.1.min.js"></script>
+	<script>
+        $(function () {
+            //$("#header").load("../includes/top.ejs");
+            $("#footer").load("../includes/footer.ejs");
+            $("#leftnav").load("../includes/leftnav.ejs");
+        });
+
+		//delete functionality - start
+		$(document).ready(function(){
+		  $('#delete').on('click', function(){
+		  var result = $('input[type="checkbox"]:checked');
+		  //alert(result.length);
+		  //$('input:checkbox:checked')
+		  var item = new Array();
+		  if(result.length > 0){
+				result.each(function(){
+				item.push($(this).attr('id'));
+			  });
+			  sendResponse(item);
+			}
+			else{
+				alert("Please select records to delete");
+			}
+		 });
+		  function sendResponse(item) {
+			$.ajax({
+			  type:'post',
+			  url:"/deleteMany",
+			  data:{incidents:item},
+			  success:function(data){
+				location.reload();
+			  }
+			});
+		  }
+		});
+		//delete functionality - end
+	</script>
+</head>
+<body>
+    <div id="header"><% include ./includes/top.ejs %></div>
+    <div id="leftnav"></div>
+
+    <div class="container">
+        <h1>Incident List</h1>
+		<form>
+        <% if(incidents.length>0) { %>
+        <div class="divTable">
+			<div class="divTableHeading">
+				<div class="divTableRow">
+					<div class="divTableHead"></div>
+					<div class="divTableHead">Area</div>
+					<div class="divTableHead">Raised By</div>
+					<div class="divTableHead">Location</div>
+					<div class="divTableHead">Team Leader</div>
+					<div class="divTableHead">Sub Area</div>
+					<div class="divTableHead">SR Number</div>
+					<div class="divTableHead">SR Substatus</div>
+					<div class="divTableHead">Back ground information</div>
+				</div>
+			</div>
+			<div class="divTableBody">
+				<% for(var i=0; i < incidents.length; i++) { %>
+					<div class="divTableRow">
+						<div class="divTableCell"><input type="checkbox" id="<%= incidents[i].id_num%>" name="<%= incidents[i].id_num%>" /></div>
+						<div class="divTableCell"><a href="/show/<%= incidents[i].id_num%>"><%= incidents[i].area%><%= incidents[i].id_num%></a></div>
+						<div class="divTableCell"><%= incidents[i].raisedby%></div>
+						<div class="divTableCell"><%= incidents[i].location%></div>
+						<div class="divTableCell"><%= incidents[i].teamleader%></div>
+						<div class="divTableCell"><%= incidents[i].subarea%></div>
+						<div class="divTableCell"><%= incidents[i].srnumber%></div>
+						<div class="divTableCell"><%= incidents[i].srsubstatus%></div>
+						<div class="divTableCell"><%= incidents[i].bginfo%></div>
+					</div>
+				<% } %>
+				</br>
+					<div class="divTableRow">
+						<div class="divTableCell"></div>
+						<div class="divTableCell"></div>
+						<div class="divTableCell"></div>										
+						<div class="divTableCell"><button type="button" id="delete" name="delete">Delete</button></div>
+					</div>
+			</div>				
+			<div id="divResult"></div>
+		</div
+		<% } else { %>
+			<div  class="divTableHeading">No Incident found.</div>
+		<% } %>
+		<!--pagination-->
+		<% if (pages > 0) { %>
+                <ul class="pagination text-center">
+                    <% if (current == 1) { %>
+                        <li class="disabled"><a>First</a></li>
+                    <% } else { %>
+                        <li><a href="/homep/1">First</a></li>
+                    <% } %>
+					<% if (Number(current) - 1 > 0) { %>
+                        <li><a href="/homep/<%= Number(current) - 1 %>">Prev</a></li>
+                    <% } %>
+                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                    <% if (i !== 1) { %>
+                        <li class="disabled"><a>...</a></li>
+                    <% } %>
+                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                        <% if (i == current) { %>
+                            <li class="active"><a><%= i %></a></li>
+                        <% } else { %>
+                            <li><a href="/homep/<%= i %>"><%= i %></a></li>
+                        <% } %>
+                        <% if (i == Number(current) + 4 && i < pages) { %>
+                            <li class="disabled"><a>...</a></li>
+                        <% } %>
+                    <% } %>
+					<% if (Number(current) + 1 <= pages) { %>
+                        <li><a href="/homep/<%= Number(current) + 1 %>">Next</a></li>
+                    <% } %>
+                    <% if (current == pages) { %>
+                        <li class="disabled"><a>Last</a></li>
+                    <% } else { %>
+                        <li><a href="/homep/<%= pages %>">Last</a></li>
+                    <% } %>
+                </ul>
+            <% } %>
+		</form>
+    </div>
+<div id="footer"></div>
+</body>
+</html>

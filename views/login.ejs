@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Node.js Login</title>
+	<!--script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script-->
+	<script src="../javascripts/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">	
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    
+	
+
+	<script src="../validators/login.js"></script>
+    <script src="../controllers/sloginController.js"></script>    
+    <script src="../validators/emailValidator.js"></script>
+	<script src="../validators/loginValidator.js"></script>
+
+	<script>
+        $(function () {
+            $("#alert").load("../modals/alert.ejs");
+            $("#lost-password").load("../modals/lost-password.ejs");            
+        });
+	</script>
+
+  </head>
+  <body>
+    <div class="center-vertical" id="login">
+      <form class="card card-body bg-light" method="post">
+        <h2>Hello!</h2>
+        <h6>Please Login To Your Account</h6>
+        <div class="form-group">
+          <label>Username</label>
+          <input class="form-control" type="text" id="user-tf" name="user">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input class="form-control" type="password" id="pass-tf" name="pass">
+        </div>
+        <div id="row1">
+          <button class="btn btn-light btn-left" type="button" id="btn_remember"><span class="fa fa-check-square"></span>Remember Me</button>
+          <button class="btn btn-primary" type="submit" id="btn_sign_in"><span class="fa fa-lock"></span>Sign In</button>
+        </div>
+        <hr>
+        <div class="btm-links">
+          <div id="forgot-password"><a href="#">Forgot Your Password?</a></div>
+          <div id="create-account"><a href="/signup">Create An Account</a></div>
+        </div>
+      </form>
+    </div>    
+	<div id="alert"></div>
+	<div id="lost-password"></div>
+  </body>
+</html>

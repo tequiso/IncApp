@@ -1,0 +1,27 @@
+<p style="font-weight: bold;font-size: 22px;margin-bottom:0">Search Result:</p>
+<hr>
+  <% if(incidents.length>0) { %>
+  <div class="divTable">
+    <div class="divTableHeading">
+      <div class="divTableRow">		
+        <div class="divTableHead">Procedure</div>
+        <div class="divTableHead">Workaround</div>        
+      </div>
+    </div>
+    <div class="divTableBody">
+      <%  console.log("SKS workaround length :" + incidents.length); %>
+      <% for(var i=0; i < incidents.length; i++) { %>      
+      <div class="divTableRow">        
+        <div class="divTableCell">
+          <%= incidents[i].procedure%>
+        </div>
+        <div class="divTableCell">
+          <%= incidents[i].workaround%>
+        </div>        
+      </div>
+      <% } %>
+    </div>
+    <% } else { %>
+      <%  console.log("SKS No length :" + incidents.length); %>
+    <div  class="divTableHeading">No Incident found.</div>
+    <% } %>

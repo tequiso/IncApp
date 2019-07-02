@@ -1,0 +1,22 @@
+npm install --save
+npm install --save mongodb
+npm install --save mongoose
+npm install --save ejs
+npm install --save nodemon
+npm install --save express-fileupload
+npm install --save csv-express
+npm install --save fast-csv
+npm install --save mongoose-auto-increment
+npm install --save mongoose-paginate
+
+db.incident.createIndex({ error_msg: "text", bginfo: "text" });
+db.workaround.createIndex({ procedure: "text" });
+
+
+==========
+Login Page
+npm install --save connect-mongo
+npm install --save express-session 
+npm install --save stylus
+npm install --save moment
+npm install --save crypto

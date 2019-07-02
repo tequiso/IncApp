@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="x-ua-compatible" content="IE=11" >
+    <title>Incident Management Tool</title>
+	<link href="../stylesheets/mainsks.css" rel="stylesheet">    
+    <!--link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
+    <script src="../javascripts/jquery-3.3.1.min.js"></script>
+	<script>
+        $(function () {
+            $("#header").load("../includes/top.ejs");
+            $("#footer").load("../includes/footer.ejs");
+            $("#leftnav").load("../includes/leftnav.ejs");
+        });
+
+		//delete functionality - start
+		$(document).ready(function(){
+		  $('#delete').on('click', function(){
+		  var result = $('input[type="checkbox"]:checked');
+		  //alert(result.length);
+		  //$('input:checkbox:checked')
+		  var item = new Array();
+		  if(result.length > 0){
+				result.each(function(){
+				item.push($(this).attr('id'));
+			  });
+			  sendResponse(item);
+			}
+			else{
+				alert("Please select records to delete");
+			}
+		 });
+		  function sendResponse(item) {
+			$.ajax({
+			  type:'post',
+			  url:"/admin/deleteArea",
+			  data:{area:item},
+			  success:function(data){
+				location.reload();
+			  }
+			});
+		  }
+		});
+		//delete functionality - end
+	</script>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="leftnav"></div>
+
+    <div class="container">
+        
+        <h1>Area List</h1>
+		<form>
+        <% if(area.length>0) { %>
+        <div class="divTable">
+			<div class="divTableHeading">
+				<div class="divTableRow">
+					<div class="divTableHead"></div>
+					<div class="divTableHead">Area</div>
+					<div class="divTableHead">Location</div>					
+				</div>
+			</div>
+			<div class="divTableBody">
+				<% for(var i=0; i < area.length; i++) { %>
+					<div class="divTableRow">
+						<div class="divTableCell"><input type="checkbox" id="<%= area[i].id%>" name="<%= area[i].id%>" /></div>
+						<div class="divTableCell"><%= area[i].area%></div>
+						<div class="divTableCell"><%= area[i].location%></div>						
+					</div>
+				<% } %>
+				</br>
+					<div class="divTableRow">
+						<div class="divTableCell"></div>										
+						<div class="divTableCell"><button type="button" id="delete" name="delete">Delete</button></div>
+					</div>
+			</div>				
+			<div id="divResult"></div>
+		</div
+		<% } else { %>
+			<div  class="divTableHeading">No Area found.</div>
+		<% } %>		
+		</form>
+    </div>
+<div id="footer"></div>
+</body>
+</html>

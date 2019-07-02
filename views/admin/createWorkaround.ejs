@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="x-ua-compatible" content="IE=11" >
+    <link href="../stylesheets/mainsks.css" rel="stylesheet">
+    <title>Incident Management Tool</title>
+    
+	<script src="../javascripts/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("../includes/top.ejs");
+            $("#footer").load("../includes/footer.ejs");
+            $("#leftnav").load("../includes/leftnav.ejs");
+        });
+	</script>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="leftnav"></div>
+
+    <div class="container">
+	<h1>Create New Workaround</h1>
+	<form action="/admin/saveWorkaround" method="post">
+		<div class="divTable">
+			<div class="divTableBody">
+				<div class="divTableRow">
+					<div class="divTableCell">Procedure:</div>
+					<div class="divTableCell"><input id="procedure" name="procedure" type="text" required=""/></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Workaround:</div>
+					<div class="divTableCell"><textarea id="workaround" name="workaround" required=""></textarea></div>
+				</div>
+				<!--div class="divTableRow">
+					<div class="divTableCell">Workaround:</div>
+					<div class="divTableCell"><select id="workaround" name="workaround"></select>
+						<script>
+						/*	var select = document.getElementById("workaround"), arr = ["NEW","BIR","DUD","PLY","NIR"];
+
+							for(var i = 0; i < arr.length; i++)
+							{
+								var option = document.createElement("OPTION"), txt = document.createTextNode(arr[i]);
+								option.appendChild(txt);
+
+								option.setAttribute("value",arr[i]);
+								select.insertBefore(option,select.lastChild);
+							} */
+						</script>
+					</div>
+				</div-->
+				
+				<div class="divTableRow">
+					<div class="divTableCell"><button type="submit">Save</button></div>
+					<div class="divTableCell"><button type="button" onclick="history.back()">Cancel</button></div>
+				</div>
+			</div>
+		</div>	
+	</form>
+</div>
+<div id="footer" style="margin-top: 900px;"></div>
+</body>
+</html>

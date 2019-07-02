@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="x-ua-compatible" content="IE=11" >
+    <link href="../stylesheets/mainsks.css" rel="stylesheet">
+    <title>Incident Management Tool</title>
+    
+    <script src="../javascripts/jquery-3.3.1.min.js"></script>
+	<script>
+       $(function () {
+            $("#header").load("../includes/top.ejs");
+            $("#footer").load("../includes/footer.ejs");
+            $("#leftnav").load("../includes/leftnav.ejs");
+        });
+
+		$(function() {
+			function ptrnResult(form) {
+				var ptrnmatch =  $('#ptrnmatch').val();
+				$.get('/patternResult', {
+				  searchText: ptrnmatch
+				}).then(function (data) {
+				  $('#pattern-result').html(data);
+				});
+			}	 
+			window.ptrnResult = ptrnResult;
+		});
+		
+		//pattern workaround
+		$(function() {
+			function ptrnResultWkaround(form) {
+				var ptrnmatchwwrk =  $('#ptrnmatchwkaround').val();
+				$.ajax({
+                    method: "GET",
+                    url: "/patternWrk",
+                    data: {
+                        searchWrkArnd: ptrnmatchwwrk
+                    },
+                }).done(function (data) {
+					$('#pattern-result').html(data);
+				});				
+			}		
+			window.ptrnResultWkaround = ptrnResultWkaround;
+		});
+
+		//pattern AAC
+		$(document).ready(function() {
+			function ptrnAAC(form) {
+				var aacId =  $('#aacId').val();
+				var formData = $(form).serializeArray();
+				$.get('/ptrnAAC', {
+				  aacId: aacId
+				}).then(function (data) {
+				  $('#pattern-result').html(data);
+				});
+			}
+			window.ptrnAAC = ptrnAAC;
+		});
+	</script>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="leftnav"></div>
+
+	<div class="container">
+		<h1>Pattern Matching</h1>
+		<div class="divTable">
+			<div class="divTableRow">
+				<div class="divTableCell">
+					<form name="frmPtrn" id="frmPtrn" onsubmit="ptrnResult(this);return false;">			
+						<div class="divTable">
+							<div class="divTableBody">				
+								<div class="divTableRow">
+									<div class="divTableCell"><label name="patternmatch"><strong>Apply Pattern</strong></label></div>
+									<div class="divTableCell"><input id="ptrnmatch" name="ptrnmatch" type="text" placeholder="Apply Pattern"  autofocus="autofocus" /></div>
+								</div>
+								<div class="divTableRow">
+									<div class="divTableCell">&nbsp;</div>
+									<div class="divTableCell"><input type="submit" value="Pattern Match" /></div>
+								</div>
+							</div>
+						</div>
+					</form>	
+				</div>
+				<div class="divTableCell">
+					<form name="frmPtrnWkArnd" id="frmPtrnWkArnd">			
+						<div class="divTable">
+							<div class="divTableBody">				
+								<div class="divTableRow">
+									<div class="divTableCell"><label name="patternmatch"><strong>Apply Workaround Pattern</strong></label></div>
+									<div class="divTableCell"><input id="ptrnmatchwkaround" name="ptrnmatchwkaround" type="text" placeholder="Apply Pattern"  autofocus="autofocus" /></div>
+								</div>
+								<div class="divTableRow">
+									<div class="divTableCell">&nbsp;</div>
+									<div class="divTableCell"><input type="button" value="Pattern Match Workaround" onclick="ptrnResultWkaround(this);return false;"/></div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="divTableCell">
+					<form onsubmit="ptrnAAC(this);return false;">			
+						<div class="divTable">
+							<div class="divTableBody">				
+								<div class="divTableRow">
+									<div class="divTableCell"><label name="aac"><strong>AAC Id</strong></label></div>
+									<div class="divTableCell"><input id="aacId" name="aacId" required="" type="text" placeholder="Enter AAC Id"  autofocus="autofocus" /></div>
+								</div>
+								<div class="divTableRow">
+									<div class="divTableCell">&nbsp;</div>
+									<div class="divTableCell"><input type="submit" value="Search" /></div>
+								</div>
+							</div>
+						</div>
+					</form>				
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="searchframe" id="pattern-result"></div>
+<div id="footer"></div>
+</body>		
+</html>

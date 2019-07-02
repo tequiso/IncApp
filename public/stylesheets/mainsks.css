@@ -1,0 +1,337 @@
+body {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    background-color:#DDDDDD;
+}
+
+.sidenav {
+    height: 100%;
+    position: relative;
+    width: 160px;
+    z-index: 1;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 10px;
+    
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    font-size: 12px;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.container {
+    padding-left: 175px;
+    position: absolute;
+    top: 80px;
+    height:100%;
+}
+
+.detailframe {
+    height: 100%;
+    //width: 100%;
+    position: absolute;
+    //z-index: 1;
+    top: 450px;
+    left: 175px;
+    /*background-color: #999999;
+    overflow-x: hidden;
+    padding-top: 0px;
+    padding-left: 0px;*/
+}
+
+.searchframe {
+    height: 100%;
+    //width: 100%;
+    position: absolute;
+    //z-index: 1;
+    top: 230px;
+    left: 175px;
+    /*background-color: #999999;
+    overflow-x: hidden;
+    padding-top: 0px;
+    padding-left: 0px;*/
+}
+
+.searchtop {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+}
+
+.searchbottom {
+    position: absolute;
+    top: 50px;
+}
+
+.footer {
+    height: auto;
+    clear: both;
+    //margin-top: 900px;
+    font-family: "Lato", sans-serif;
+    font-size: 12px;
+    background-color: #DDDDDD;
+    padding-bottom: 0px;
+    position: fixed;
+    bottom: 0px;
+    padding-left: 0px;
+    width: 100%;
+}
+
+.container h3 a:hover, .container table tr td button:hover {
+	background-color: \78F5AE;
+	color: #999999;
+}
+
+.container form button {
+	border: solid 1px #CB2027;
+	background-color: $DDAE4D;
+	border-radius: 6px;
+	text-transform: uppercase:
+	color: #FFFFFF;
+	margin: 10px 0;
+	padding: 10px 20px
+}
+
+
+.mainbody {
+    background-color: grey;
+    padding-left: 8%;
+    //padding-top: -20px;
+    width: 1100px;
+}
+
+
+.topnav {             
+    // position: fixed;
+    z-index: 1;
+	top: 50px;
+	padding-left:5%;   
+    left: 0;
+    background-color: #666;
+    overflow-x: hidden;
+    padding-top: 0px;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #ddd;
+    color: #000;
+}
+.topnav input[type=text] {
+	float: right;
+	padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    border: none;
+    font-size: 16px;
+}
+	
+/*	New css*/
+
+.banner{
+  min-height: 55px;
+  background: #003366;
+  color: #fff;
+}
+
+.bannerLeft{
+  width: 40%;
+  padding-top: 10px;
+  padding-left: 5%;
+}
+@media screen and (max-width: 600px) {
+		.topnav a, .topnav input[type=text] {
+		float: none;
+		display: block;
+		text-align: left;
+		width: 100%;
+		margin: 0;
+		padding: 14px;
+
+	}
+	.topnav input[type=text] {
+
+		border: 1px solid #ccc;		
+	}
+}
+
+form {
+    border: 0px solid #f1f1f1;    
+}
+
+
+/* FROM TABLE TO DIV start*/
+/* DivTable.com */
+.divTable {
+    display: table;
+    width: 100%;
+    background-color: #DDDDDD;
+}
+
+.divTableRow {
+    display: table-row;
+}
+
+.divTableHeading {
+    background-color: #DDDDDD;
+    display: table-header-group;
+}
+
+.divTableCell, .divTableHead {
+    border: 0px solid #999999;
+    display: table-cell;
+    padding: 3px 10px;      
+}
+
+.divTableHeading {
+    background-color: #DDDDDD;
+    display: table-header-group;
+    font-weight: bold;
+}
+
+.divTableFoot {
+    background-color: #DDDDDD;
+    display: table-footer-group;
+    font-weight: bold;
+}
+
+.divTableBody {
+    display: table-row-group;
+}
+
+/*Table to div end*/
+
+/*pagination start*/
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px
+}
+
+.pagination > li {
+    display: inline
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px
+}
+
+.pagination > li:last-child > a, .pagination > li:last-child > span {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px
+}
+
+.pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover {
+    z-index: 2;
+    color: #23527c;
+    background-color: #eee;
+    border-color: #ddd
+}
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7
+}
+
+.pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd
+}
+
+.pagination-lg > li > a, .pagination-lg > li > span {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333
+}
+
+.pagination-lg > li:first-child > a, .pagination-lg > li:first-child > span {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px
+}
+
+.pagination-lg > li:last-child > a, .pagination-lg > li:last-child > span {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px
+}
+
+.pagination-sm > li > a, .pagination-sm > li > span {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5
+}
+
+.pagination-sm > li:first-child > a, .pagination-sm > li:first-child > span {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+
+.pagination-sm > li:last-child > a, .pagination-sm > li:last-child > span {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px
+}
+
+.text-center {
+    text-align: center
+}
+
+li.disabled > a {
+    color: #777
+}
+
+.nav > li.disabled > a:focus, .nav > li.disabled > a:hover {
+    color: #777;
+    text-decoration: none;
+    cursor: not-allowed;
+    background-color: transparent
+}
+
+li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent
+}
+/*pagination end*/

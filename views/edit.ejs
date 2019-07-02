@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../stylesheets/mainsks.css" rel="stylesheet">
+    <title>Incident Management Tool</title>
+    
+    <script src="../../javascripts/jquery-3.3.1.min.js"></script>
+	<script>        
+        $(function () {
+            //$("#header").load("../../includes/top.ejs");
+            $("#footer").load("../../includes/footer.ejs");
+            $("#leftnav").load("../../includes/leftnav.ejs");
+        });
+	</script>
+</head>
+<body>
+    <div id="header"><% include ./includes/top.ejs %></div>
+    <div id="leftnav"></div>
+
+    <div class="container">        
+        <h1>Edit Incident</h1>
+        <form action="/addUpdateArray/<%= incidents.id_num%>" method="post">
+            <div class="divTable">
+				<div class="divTableBody">
+					<div class="divTableRow">
+						<div class="divTableCell"><input name="incid" readonly="readonly" type="hidden" value="<%= incidents._id %>" /></div>
+					</div>
+					<div class="divTableRow">
+						<div class="divTableCell">Name</div>
+						<div class="divTableCell"><input name="raisedby" readonly="readonly" type="text" value="<%= incidents.raisedby %>" /></div>
+					</div>
+					<div class="divTableRow">
+						<div class="divTableCell">Location</div>
+						<div class="divTableCell"><textarea name="location" readonly="readonly"><%= incidents.location %></textarea></div>
+					</div>
+					<div class="divTableRow">
+						<div class="divTableCell">Tem Leader</div>
+						<div class="divTableCell"><input name="teamleader" readonly="readonly" type="text" value="<%= incidents.teamleader %>" /></div>
+					</div>
+					<div class="divTableRow">
+						<div class="divTableCell">Team</div>
+						<div class="divTableCell"><input name="team" readonly="readonly" type="text" value="<%= incidents.team %>" /></div>
+					</div>
+					<!--div class="divTableRow">
+						<div class="divTableCell">Update</div>
+						<div class="divTableCell"><textarea name="otherupdates"></textarea></div>
+					</div-->
+					<div class="divTableRow">
+						<div class="divTableCell">Working Team</div>
+						<div class="divTableCell"><textarea name="workingteam"></textarea></div>
+					</div>
+					<div class="divTableRow">
+						<div class="divTableCell">Status</div>
+						<div class="divTableCell"><textarea name="status"></textarea></div>
+					</div>
+					<div class="divTableRow">
+						<div class="divTableCell">Responsible Team</div>
+						<div class="divTableCell"><textarea name="responsibleteam"></textarea></div>
+					</div>
+					<div class="divTableRow">
+						<div class="divTableCell">Updated By</div>
+						<div class="divTableCell"><textarea name="updatedby" required=""></textarea></div>
+					</div>
+					<div class="divTableRow">
+						<div class="divTableCell">Priority</div>
+						<div class="divTableCell"><textarea name="priority"></textarea></div>
+					</div>
+					<div class="divTableRow">
+						<div class="divTableCell">Comments</div>
+						<div class="divTableCell"><textarea name="comments" required=""></textarea></div>
+					</div>
+					<div class="divTableRow">
+						<div class="divTableCell"><button type="submit">Save Update</button></div>
+						<div class="divTableCell"><button type="button" onclick="history.back()">Cancel</button></div>
+					</div>
+				</div>
+			</div>
+        </form>
+    </div>
+<div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../stylesheets/mainsks.css" rel="stylesheet">
+    <title>Incident Management Tool</title>
+    
+	<script src="../javascripts/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            //$("#header").load("../includes/top.ejs");
+            $("#footer").load("../includes/footer.ejs");
+            $("#leftnav").load("../includes/leftnav.ejs");
+        });
+		
+		$(function() {
+		/*	$('#area').on('change',function(){
+			   $('#location').val($('#area :selected').val());
+			});*/
+		/*	$('#area').change(function(){
+			const location = $('#location');
+			location.empty();
+			//var areaName = $('#area').find(":selected").text();
+			//alert(this.value);			
+			if (this.value) {
+			  getLocation(this.value).then(function (locations) {
+				//locations.forEach(s => { alert(s); location.append($('<option>${s}</option>')); });
+				locations.forEach(s => { location.append("<option vaue='".$s"'>".${s}"</option>"); });
+			  });
+			}
+		  });
+
+		  function getLocation(area) {
+			return new Promise(function(resolve, reject) {
+			  resolve(
+				area === 'NEW' ? ['Newcastle'] : 
+				area === 'PLY' ? ['Plymoth'] : 
+				area === 'HAS' ? ['Hastings'] : ['Longbenton']
+			  );
+			});
+		  }*/
+		  /*
+			$('#area').change(function(){
+				id = $( "#area option:selected" ).text();
+				//alert(id);
+				$("#location > option").each(function() {
+					name = this.text;
+					//alert(name);
+					idFromName = name.replace(/(^\d+)(.+$)/i,'$1');
+					alert(idFromName);
+					if (id == idFromName){
+						$('#location').val(name);
+					}
+				});
+			});*/
+		});
+	</script>
+</head>
+<body>
+    <div id="header"><% include ./includes/top.ejs %></div>
+    <div id="leftnav"></div>
+
+    <div class="container">
+	<h1>Create New Incident</h1>
+	<form action="/save" method="post">
+		<div class="divTable">
+			<div class="divTableBody">
+				<div class="divTableRow">
+					<div class="divTableCell">Raised By:</div>
+					<div class="divTableCell"><input id="raisedby" name="raisedby" type="text" required=""/></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Area:</div>
+					<div class="divTableCell">
+						<select id="area" name="area">
+							<% for(var i=0; i < area.length; i++) { %>
+								<option value="<%= area[i].area %>"><%= area[i].area %></option>
+							<% } %>
+						</select>						
+					</div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Caseworker:</div>
+					<div class="divTableCell"><input name="caseworker" type="text" required="" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Contact Number :</div>
+					<div class="divTableCell"><input name="contactnum" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Team Leader</div>
+					<div class="divTableCell"><input name="teamleader" type="text" /></div>
+					<div class="divTableCell">Location</div>
+					<div class="divTableCell">
+						<select id="location" name="location">
+							<% for(var i=0; i < area.length; i++) { %>
+								<option value="<%= area[i].location %>"><%= area[i].location %></option>
+							<% } %>
+						</select>
+					</div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Team</div>
+					<div class="divTableCell"><input name="team" type="text" /></div>
+					<div class="divTableCell">Workgroup</div>
+					<div class="divTableCell"><input name="workgroup" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">G7</div>
+					<div class="divTableCell"><input name="g7" type="checkbox" /></div>
+					<div class="divTableCell">Achieved</div>
+					<div class="divTableCell"><input name="achieved" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Component Area</div>
+					<div class="divTableCell"><input name="comp_area" type="text" /></div>
+					<div class="divTableCell">Sub Area</div>
+					<div class="divTableCell"><input name="subarea" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Functional area Affected</div>
+					<div class="divTableCell"><input name="func_area" type="text" /></div>
+					<div class="divTableCell">SR Number</div>
+					<div class="divTableCell"><input name="srnumber" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">SR Status</div>
+					<div class="divTableCell"><input name="srstatus" type="text" /></div>
+					<div class="divTableCell">SR Substatus</div>
+					<div class="divTableCell"><input name="srsubstatus" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Master Case Number</div>
+					<div class="divTableCell"><input name="mastercasenum" type="text" /></div>
+					<div class="divTableCell">Case Nuber</div>
+					<div class="divTableCell"><input name="casenum" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">PP NINO</div>
+					<div class="divTableCell"><input name="pp_nino" type="text" /></div>
+					<div class="divTableCell">PP Name</div>
+					<div class="divTableCell"><input name="pp_name" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">RP NINO</div>
+					<div class="divTableCell"><input name="rp_nino" type="text" /></div>
+					<div class="divTableCell">RP Name</div>
+					<div class="divTableCell"><input name="rp_name" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">BICC Rep Name</div>
+					<div class="divTableCell"><input name="bicc_dashboard" type="text" /></div>
+					<div class="divTableCell">BICC Ans Sub Area</div>
+					<div class="divTableCell"><input name="bicc_subj_area" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Report Name</div>
+					<div class="divTableCell"><input name="bicc_rpt_name" type="text" /></div>
+					<div class="divTableCell">Report Number</div>
+					<div class="divTableCell"><input name="bicc_rpt_num" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Folder Name</div>
+					<div class="divTableCell"><input name="bicc_folder_name" type="text" /></div>
+					<div class="divTableCell">Report Col Name</div>
+					<div class="divTableCell"><input name="bicc_rpt_col" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Column Item Name</div>
+					<div class="divTableCell"><input name="bicc_col_name" type="text" /></div>
+					<div class="divTableCell">Case Affected</div>
+					<div class="divTableCell"><input name="case_affected" type="text" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">SER?</div>
+					<div class="divTableCell"><input name="ser" type="radio" value="Y" /></div>
+					<div class="divTableCell">SET?</div>
+					<div class="divTableCell"><input name="set" type="radio" value="Y"/></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Case Progress Affected?</div>
+					<div class="divTableCell"><input name="case_progress_affected" type="radio" /></div>
+					<div class="divTableCell">Pay Affected?</div>
+					<div class="divTableCell"><input name="pay_affected" type="radio" /></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Reputation risk</div>
+					<div class="divTableCell"><input name="reputation_risk" type="radio" /></div>
+				
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Background Information</div>
+					<div class="divTableCell"><textarea name="bginfo" required=""></textarea></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Error Message</div>
+					<div class="divTableCell"><textarea name="error_msg" required=""></textarea></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Procedural Path</div>
+					<div class="divTableCell"><textarea name="procedural_path"></textarea></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Other Informationn</div>
+					<div class="divTableCell"><textarea name="other_info"></textarea></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell"><button type="submit">Save</button></div>
+					<div class="divTableCell"><button type="button" onclick="history.back()">Cancel</button></div>
+				</div>
+			</div>
+		</div>	
+	</form>
+</div>
+<div id="footer" style="margin-top: 900px;"></div>
+</body>
+</html>

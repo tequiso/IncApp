@@ -1,0 +1,3 @@
+D:\NodeJS\IncidentApp\IncidentApp\obj\Debug\IncidentApp.njsprojAssemblyReference.cache
+D:\NodeJS\IncidentApp\IncidentApp\obj\Debug\IncidentApp.njsproj.CoreCompileInputs.cache
+D:\NodeJS\IncidentApp\IncidentApp\bin\Microsoft.NodejsTools.WebRole.dll

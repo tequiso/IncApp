@@ -1,0 +1,81 @@
+> use threads
+switched to db threads
+> db.messages.insert({ messages: [{ _id:ObjectId(), message:"Message 1." }]});
+
+> db.messages.find({"_id":ObjectId("5c51ffaed209d28cb50f1b4d")}).pretty();
+
+> db.messages.update({"_id":ObjectId("5c51ffaed209d28cb50f1b4d")}, {$push: {messages: {_id:ObjectId(), message: "Message 2."}}});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.messages.find().pretty()
+
+> db.messages.update({"_id":ObjectId("5c51ffaed209d28cb50f1b4d")}, {$push: {messages: {_id:ObjectId(), message: "Message 3."}}});
+> db.messages.update({"_id":ObjectId("5c51ffaed209d28cb50f1b4d")}, {$push: {messages: {_id:ObjectId(), message: "Message 4."}}});
+> db.messages.update({"_id":ObjectId("5c51ffaed209d28cb50f1b4d")}, {$push: {messages: {_id:ObjectId(), message: "Message 5."}}});
+
+DB Name: IMT
+Collection Name: incident
+
+> use IMT
+switched to db IMT
+> db.createCollection("counter");
+{ "ok" : 1 }
+> db.counter.insert({ _id: "item_id", sequence_value: 0 });
+WriteResult({ "nInserted" : 1 })
+
+> function getValueForNextSequence(sequenceOfName){
+...    var sequenceDoc = db.counter.findAndModify({
+...       query:{_id: sequenceOfName },
+...       update: {$inc:{sequence_value:1}},
+...       new:true
+...    });
+...    return sequenceDoc.sequence_value;
+... }
+============
+
+> db.ITEMS_STORE.insert({
+...   "_id": getValueForNextSequence("item_id"),
+...   "item_short_name": "Samsung S7",
+...   "specification": "4G Phone",
+...   "category": "cell_phones",
+...   "seller": "best_buy",
+...   "network": "Rogers",
+...   "plan": "regular"
+... })
+WriteResult({ "nInserted" : 1 })
+> db.ITEMS_STORE.insert({
+...   "_id": getValueForNextSequence("item_id"),
+...   "item_short_name": "Apple iPhone7",
+...   "specification": "4G Phone Jet Black",
+...   "category": "cell_phones",
+...   "seller": "best_buy",
+...   "network": "Telus",
+...   "plan": "premium"
+... })
+WriteResult({ "nInserted" : 1 })
+> db.ITEMS_STORE.insert({
+...   "_id": getValueForNextSequence("item_id"),
+...   "item_short_name": "Google Nexus 7",
+...   "specification": "4G Phone Red color",
+...   "category": "cell_phones",
+...   "seller": "best_buy",
+...   "network": "Bell",
+...   "plan": "corporate"
+... })
+WriteResult({ "nInserted" : 1 })
+>
+
+> db.ITEMS_STORE.find().pretty()
+
+
+db.employees.insert({
+...   "_id": getValueForNextSequence("item_id"),
+...   "area": "NEW",
+...   "raisedby": "Sailesh",
+...   "caseworker": "kumar",
+...   "contactnum": "07423320082",
+...   "teamleader": "Rogers",
+...   "location": "Newcastle"
+... })
+
+db.Employee.drop()

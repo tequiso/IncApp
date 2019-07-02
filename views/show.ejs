@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../stylesheets/mainsks.css" rel="stylesheet">
+	
+    <title>Incident Management Tool</title>
+    
+    <script src="../../javascripts/jquery-3.3.1.min.js"></script>
+	<script>        
+		/*//for practise
+		$('#&lt%= txtdate.ClientID %&gt').val(date.toString().substring(4, 12));
+		*/
+        $(function () {
+            //$("#header").load("../../includes/top.ejs");
+            $("#footer").load("../../includes/footer.ejs");
+            $("#leftnav").load("../../includes/leftnav.ejs");
+        });		
+	</script>
+</head>
+<body>
+    <div id="header"><% include ./includes/top.ejs %></div>
+    <div id="leftnav"></div>
+
+    <div class="container">
+        <h1>Incident Detail</h1>
+        <div class="divTable">
+			<div class="divTableBody">
+				<div class="divTableRow">
+					<div class="divTableCell">AAC Id</div>
+					<div class="divTableCell">:</div>
+					<div class="divTableCell"><%= incidents.area %><%= incidents.id_num %></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Raised By</div>
+					<div class="divTableCell">:</div>
+					<div class="divTableCell"><%= incidents.raisedby %></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Location</div>
+					<div class="divTableCell">:</div>
+					<div class="divTableCell"><%= incidents.location %></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Team Leader</div>
+					<div class="divTableCell">:</div>
+					<div class="divTableCell"><%= incidents.teamleader%></div>
+				</div>
+				<!--div class="divTableRow">
+					<div class="divTableCell">Team</div>
+					<div class="divTableCell">:</div>
+					<div class="divTableCell"><%= incidents.team%></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Sub Area</div>
+					<div class="divTableCell">:</div>
+					<div class="divTableCell"><%= incidents.subarea%></div>
+				</div-->
+				<div class="divTableRow">
+					<div class="divTableCell">Status</div>
+					<div class="divTableCell">:</div>
+					<div class="divTableCell"><%= incidents.status%></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Priority</div>
+					<div class="divTableCell">:</div>
+					<div class="divTableCell"><%= incidents.priority%></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">SR Number</div>
+					<div class="divTableCell">:</div>
+					<div class="divTableCell"><%= incidents.srnumber%></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">SR Sub Status</div>
+					<div class="divTableCell">:</div>
+					<div class="divTableCell"><%= incidents.srsubstatus%></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell">Backgound Information</div>
+					<div class="divTableCell">:</div>
+					<div class="divTableCell"><%= incidents.bginfo%></div>
+				</div>
+				<div class="divTableRow">
+					<div class="divTableCell"><h3><a href="/edit/<%= incidents.id_num%>">Add New Update</a></h3></div>
+					<div class="divTableCell">&nbsp;</div>
+					<div class="divTableCell">&nbsp;</div>
+				</div>
+			</div>
+		</div>        
+	</div>
+		<div class="detailframe">	
+			<% var x = incidentUpdates;
+				console.log("SKS: " + x);
+				//console.log("SKS 1" + x[0].updates.comments);
+				//console.log("SKS 2" + x[1].updates.comments);
+				//console.log("SKS 3" + x[0][0]);
+				//console.log("SKS 4" + x[1]);
+				//var y = incidents;
+				//console.log("ParSKS: " + y);
+			%>
+			<% if(incidentUpdates.length > 0) { %>
+				<div class="divTable">
+					<div class="divTableHeading">
+						<div class="divTableRow">
+							<div class="divTableHead">Updated Date</div>
+							<div class="divTableHead">Updated By</div>
+							<div class="divTableHead">Comments</div>
+						</div>
+					</div>
+					<div class="divTableBody">						
+							<% for(var i=0; i < incidentUpdates.length; i++) { %>
+								<div class="divTableRow">
+									<div class="divTableCell">
+										<%= new Date(incidentUpdates[i].updates.updated).toJSON().toString().substring(0, 10)%> <%= new Date(incidentUpdates[i].updates.updated).toJSON().toString().substring(11, 19)%>
+									</div>									
+									<div class="divTableCell"><%= incidentUpdates[i].updates.updatedby%></div>
+									<div class="divTableCell"><%= incidentUpdates[i].updates.comments%></div>					
+								</div>
+							<% } %>
+					</div>
+				</div>
+			<% } else { %> 
+			<% } %>
+		</div>
+	
+
+<div id="footer" style="margin-top: 80px"></div>
+</body>
+</html>

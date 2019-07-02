@@ -1,0 +1,59 @@
+<p style="font-weight: bold;font-size: 22px;margin-bottom:0">Search Result:</p>
+<hr>
+  <% if(incidents.length>0) { %>
+  <div class="divTable">
+    <div class="divTableHeading">
+      <div class="divTableRow">
+        <div class="divTableHead">AAC Id</div>
+        <!--div class="divTableHead">Location</div-->
+        <!--div class="divTableHead">Team Leader</div-->
+        <div class="divTableHead">Sub Area</div>
+        <!--div class="divTableHead">SR Number</div>
+        <div class="divTableHead">SR Substatus</div-->
+        <div class="divTableHead">Back ground information</div>
+		    <div class="divTableHead">Procedural Path</div>
+		    <div class="divTableHead">Error Message</div>
+		    <div class="divTableHead">Specific Error</div>
+      </div>
+    </div>
+    <div class="divTableBody">
+      <%  //console.log("SKS Incidents length :" + incidents.length); %>
+      <% for(var i=0; i < incidents.length; i++) { %>      
+      <div class="divTableRow">
+        <div class="divTableCell">
+          <a href="/show/<%= incidents[i].id_num%>"><%= incidents[i].area%><%= incidents[i].id_num%></a>
+        </div>
+        <!--div class="divTableCell">
+          <%= //incidents[i].location%>
+        </div>
+        <div class="divTableCell">
+          <%= //incidents[i].teamleader%>
+        </div-->
+        <div class="divTableCell">
+          <%= incidents[i].subarea%>
+        </div>
+        <!--div class="divTableCell">
+          <%= incidents[i].srnumber%>
+        </div>
+        <div class="divTableCell">
+          <%= //incidents[i].srsubstatus%>
+        </div-->
+        <div class="divTableCell">
+          <%= incidents[i].bginfo%>
+        </div>
+		<div class="divTableCell">
+          <%= incidents[i].procedural_path%>
+        </div>
+		<div class="divTableCell">
+          <%= incidents[i].error_msg%>
+        </div>
+		<div class="divTableCell">
+          <%= incidents[i].result%>
+        </div>
+      </div>
+      <% } %>
+    </div>
+    <% } else { %>
+      <%  console.log("SKS No length :" + incidents.length); %>
+    <div  class="divTableHeading">No Incident found.</div>
+    <% } %>

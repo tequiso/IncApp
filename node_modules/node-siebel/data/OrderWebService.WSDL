@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:tns="http://siebel.com/OrderManagement/Order"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsdLocal1="http://siebel.com/OrderManagement/Order/Data"
+  xmlns:xsdLocal2="http://siebel.com/OrderManagement/Order/Item/Data"
+  targetNamespace="http://siebel.com/OrderManagement/Order">
+
+    <types>
+        <xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://siebel.com/OrderManagement/Order/Data">
+
+            <xsd:annotation>
+                <xsd:documentation>Copyright (C) 2001-2004 Siebel Systems, Inc. All rights reserved. Siebel XSD Generation</xsd:documentation>
+            </xsd:annotation>
+
+            <xsd:element name="ListOfOrder" type="xsdLocal1:ListOfOrder" />
+
+            <xsd:complexType name="ListOfOrderTopElmt">
+                <xsd:sequence>
+                    <xsd:element name="ListOfOrder" maxOccurs="1" minOccurs="1" type="xsdLocal1:ListOfOrder" />
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="ListOfOrder">
+                <xsd:sequence>
+                    <xsd:element name="ListOfOrderHeader" maxOccurs="1" minOccurs="0" type="xsdLocal1:ListOfOrderHeader" />
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="ListOfOrderHeader">
+                <xsd:sequence>
+                    <xsd:element name="Order" maxOccurs="1" minOccurs="1" type="xsdLocal1:Order" />
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="Order">
+                <xsd:sequence>
+                    <xsd:element name="Status" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Revision" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PriceListId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="OrderType" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="OrderNumber" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="OptyId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="IntegrationId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Discount" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="CurrencyCode" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ContactId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Comments" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="BillingProfileId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="AccountId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="BillingProfileName" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Created" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ConflictId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="AccountLoc" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Account" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ModId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Updated" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Id" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ListOfOrderItem" maxOccurs="1" minOccurs="0" type="xsdLocal1:ListOfOrderItem" />
+                </xsd:sequence>
+                <xsd:attribute name="searchspec" type="xsd:string" />
+            </xsd:complexType>
+
+            <xsd:complexType name="ListOfOrderItem">
+                <xsd:sequence>
+                    <xsd:element name="OrderItem" maxOccurs="unbounded" minOccurs="0" type="xsdLocal1:OrderItem" />
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="OrderItem">
+                <xsd:sequence>
+                    <xsd:element name="VolumeUpsellMessage" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="VolumeUpsellItemId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="VolumeDiscountItemId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="VolumeDiscountId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="UnitofMeasure" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ServiceLengthUoM" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ServiceLength" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="RootProductId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="RootOrderItemId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="RollupItemPrice" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="RollupAmount" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProductTypeCode" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProductStructureType" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProdPromSourceId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProdPromRuleId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProdPromInstanceId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProdPromId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProdItemId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PortItemId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="NRCCxTotal" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="MRCCxTotal" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="LineNumber" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ItemPriceListId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="IntegrationId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ForcastableFlag" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ExtendedQuantityRequested" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ExcludePricingFlag" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ExchangeDate" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="EligibilityStatus" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="EligibilityReason" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="DueDate" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Discount" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="CurrentPrice" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="CurrencyCode" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Cost" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ClassId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="CfgType" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="CfgStateCode" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="AssetIntegrationId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ActionCode" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="RootAssetIntegrationId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ModId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProdPromName" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PrePickCD" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PriceListId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PriceType" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProductLineId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Updated" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="VolumeDiscountItem" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="NeedRefresh" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="VolumeUpsellItem" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="SequenceNumber" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PostPickCD" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ParentOrderItemId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="HasGenerics" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="EffectiveTo" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="EffectiveFrom" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ConfigurationModelId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Created" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ConflictId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Id" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="InclusiveEligibilityFlag" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Name" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="DiscountPercent" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="DiscountAmount" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="DiscountSource" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PricingComments" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Qty" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProductId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="OrigListPrice" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="SmartPartNumber" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="UnitPrice" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ListPrice" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ListOfOrderItemXA" maxOccurs="1" minOccurs="0" type="xsdLocal1:ListOfOrderItemXA" />
+                    <xsd:element name="BillingProfileId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="BillingProfileName" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="OrderItem" maxOccurs="unbounded" minOccurs="0" type="xsdLocal1:OrderItem" />
+                </xsd:sequence>
+                <xsd:attribute name="searchspec" type="xsd:string" />
+            </xsd:complexType>
+
+            <xsd:complexType name="ListOfOrderItemXA">
+                <xsd:sequence>
+                    <xsd:element name="OrderItemXA" maxOccurs="unbounded" minOccurs="0" type="xsdLocal1:OrderItemXA" />
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="OrderItemXA">
+                <xsd:sequence>
+                    <xsd:element name="XAId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="UnitofMeasure" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Sequence" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Required" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ReadOnly" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Attribute" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="LOVType" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Hidden" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="DisplayName" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="CfgStateCode" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ActionCode" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ObjectId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Updated" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Created" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Id" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ModId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ConflictId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Value" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Validation" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="DateType" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                </xsd:sequence>
+                <xsd:attribute name="searchspec" type="xsd:string" />
+            </xsd:complexType>
+
+        </xsd:schema>
+
+        <xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://siebel.com/OrderManagement/Order">
+            <xsd:import namespace="http://siebel.com/OrderManagement/Order/Item/Data" />
+            <xsd:import namespace="http://siebel.com/OrderManagement/Order/Data" />
+            <xsd:element name="SynchronizeOrder_Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal1:ListOfOrder" />
+                        <xsd:element name="StatusObject" minOccurs="0" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="SynchronizeOrder_Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal1:ListOfOrder" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DeleteOrder_Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal1:ListOfOrder" />
+                        <xsd:element name="StatusObject" minOccurs="0" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DeleteOrder_Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal1:ListOfOrder" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetOrderById_Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="PrimaryRowId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetOrderById_Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal1:ListOfOrder" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UpdateOrder_Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal1:ListOfOrder" />
+                        <xsd:element name="StatusObject" minOccurs="0" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UpdateOrder_Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal1:ListOfOrder" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetOrder_Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal1:ListOfOrder" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetOrder_Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal1:ListOfOrder" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="InsertOrder_Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal1:ListOfOrder" />
+                        <xsd:element name="StatusObject" minOccurs="0" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="InsertOrder_Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal1:ListOfOrder" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetOrderItemById_Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="PrimaryRowId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetOrderItemById_Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal2:ListOfOrderItemBO" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetOrderItem_Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal2:ListOfOrderItemBO" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetOrderItem_Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal2:ListOfOrderItemBO" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DeleteOrderItem_Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal2:ListOfOrderItemBO" />
+                        <xsd:element name="StatusObject" minOccurs="0" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DeleteOrderItem_Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal2:ListOfOrderItemBO" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="InsertOrderItem_Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal2:ListOfOrderItemBO" />
+                        <xsd:element name="StatusObject" minOccurs="0" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="InsertOrderItem_Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal2:ListOfOrderItemBO" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UpdateOrderItem_Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal2:ListOfOrderItemBO" />
+                        <xsd:element name="StatusObject" minOccurs="0" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UpdateOrderItem_Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal2:ListOfOrderItemBO" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="SynchronizeOrderItem_Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal2:ListOfOrderItemBO" />
+                        <xsd:element name="StatusObject" minOccurs="0" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="SynchronizeOrderItem_Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="xsdLocal2:ListOfOrderItemBO" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+
+        <xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://siebel.com/OrderManagement/Order/Item/Data">
+            <xsd:annotation>
+                <xsd:documentation>Copyright (C) 2001-2004 Siebel Systems, Inc. All rights reserved. Siebel XSD Generation</xsd:documentation>
+            </xsd:annotation>
+            <xsd:element name="ListOfOrderItemBO" type="xsdLocal2:ListOfOrderItemBO" />
+            <xsd:complexType name="ListOfOrderItemBOTopElmt">
+                <xsd:sequence>
+                    <xsd:element name="ListOfOrderItemBO" maxOccurs="1" minOccurs="1" type="xsdLocal2:ListOfOrderItemBO" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ListOfOrderItemBO">
+                <xsd:sequence>
+                    <xsd:element name="ListOfOrderItem" maxOccurs="1" minOccurs="0" type="xsdLocal2:ListOfOrderItem" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ListOfOrderItem">
+                <xsd:sequence>
+                    <xsd:element name="OrderItem" maxOccurs="unbounded" minOccurs="0" type="xsdLocal2:OrderItem" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="OrderItem">
+                <xsd:sequence>
+                    <xsd:element name="VolumeUpsellMessage" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="VolumeUpsellItemId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="VolumeDiscountItemId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="VolumeDiscountId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="RootOrderItemId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="RootAssetIntegrationId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="RollupItemPrice" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="RollupAmount" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProductLineId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProdPromSourceId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProdPromRuleId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProdPromInstanceId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProdPromId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProdItemId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PriceType" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PrePickCD" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PostPickCD" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PortItemId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="OrderHeaderId" maxOccurs="1" minOccurs="1" type="xsd:string" />
+                    <xsd:element name="NRCCxTotal" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="MRCCxTotal" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="LineNumber" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ItemPriceListId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="IntegrationId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="InclusiveEligibilityFlag" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ForcastableFlag" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ExtendedQuantityRequested" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ExcludePricingFlag" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ExchangeDate" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="EligibilityStatus" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="EligibilityReason" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="EffectiveTo" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="EffectiveFrom" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="DueDate" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Discount" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="CurrentPrice" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="CurrencyCode" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="CfgType" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="CfgStateCode" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="AssetIntegrationId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ActionCode" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Created" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Id" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ConflictId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Updated" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="SequenceNumber" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ParentOrderItemId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ModId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="NeedRefresh" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProdPromName" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PriceListId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ConfigurationModelId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="VolumeUpsellItem" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="VolumeDiscountItem" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="HasGenerics" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="SmartPartNumber" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="PricingComments" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ProductId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Qty" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="OrigListPrice" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Name" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ListPrice" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="DiscountAmount" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="DiscountSource" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="DiscountPercent" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="UnitPrice" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ListOfOrderItemXA" maxOccurs="1" minOccurs="0" type="xsdLocal2:ListOfOrderItemXA" />
+                    <xsd:element name="OrderItem" maxOccurs="unbounded" minOccurs="0" type="xsdLocal2:OrderItem" />
+                </xsd:sequence>
+                <xsd:attribute name="searchspec" type="xsd:string" />
+            </xsd:complexType>
+            <xsd:complexType name="ListOfOrderItemXA">
+                <xsd:sequence>
+                    <xsd:element name="OrderItemXA" maxOccurs="unbounded" minOccurs="0" type="xsdLocal2:OrderItemXA" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="OrderItemXA">
+                <xsd:sequence>
+                    <xsd:element name="XAId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="UnitofMeasure" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Sequence" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Required" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ReadOnly" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Attribute" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="LOVType" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Hidden" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="DisplayName" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ActionCode" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Created" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Id" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Updated" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ObjectId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ModId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="ConflictId" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Validation" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="DateType" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                    <xsd:element name="Value" maxOccurs="1" minOccurs="0" type="xsd:string" />
+                </xsd:sequence>
+                <xsd:attribute name="searchspec" type="xsd:string" />
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+    <message name="SynchronizeOrder_Input">
+        <part name="SynchronizeOrder_Input" element="tns:SynchronizeOrder_Input" />
+    </message>
+    <message name="SynchronizeOrder_Output">
+        <part name="SynchronizeOrder_Output" element="tns:SynchronizeOrder_Output" />
+    </message>
+    <message name="DeleteOrder_Input">
+        <part name="DeleteOrder_Input" element="tns:DeleteOrder_Input" />
+    </message>
+    <message name="DeleteOrder_Output">
+        <part name="DeleteOrder_Output" element="tns:DeleteOrder_Output" />
+    </message>
+    <message name="GetOrderById_Input">
+        <part name="GetOrderById_Input" element="tns:GetOrderById_Input" />
+    </message>
+    <message name="GetOrderById_Output">
+        <part name="GetOrderById_Output" element="tns:GetOrderById_Output" />
+    </message>
+    <message name="UpdateOrder_Input">
+        <part name="UpdateOrder_Input" element="tns:UpdateOrder_Input" />
+    </message>
+    <message name="UpdateOrder_Output">
+        <part name="UpdateOrder_Output" element="tns:UpdateOrder_Output" />
+    </message>
+    <message name="GetOrder_Input">
+        <part name="GetOrder_Input" element="tns:GetOrder_Input" />
+    </message>
+    <message name="GetOrder_Output">
+        <part name="GetOrder_Output" element="tns:GetOrder_Output" />
+    </message>
+    <message name="InsertOrder_Input">
+        <part name="InsertOrder_Input" element="tns:InsertOrder_Input" />
+    </message>
+    <message name="InsertOrder_Output">
+        <part name="InsertOrder_Output" element="tns:InsertOrder_Output" />
+    </message>
+    <message name="GetOrderItemById_Input">
+        <part name="GetOrderItemById_Input" element="tns:GetOrderItemById_Input" />
+    </message>
+    <message name="GetOrderItemById_Output">
+        <part name="GetOrderItemById_Output" element="tns:GetOrderItemById_Output" />
+    </message>
+    <message name="GetOrderItem_Input">
+        <part name="GetOrderItem_Input" element="tns:GetOrderItem_Input" />
+    </message>
+    <message name="GetOrderItem_Output">
+        <part name="GetOrderItem_Output" element="tns:GetOrderItem_Output" />
+    </message>
+    <message name="DeleteOrderItem_Input">
+        <part name="DeleteOrderItem_Input" element="tns:DeleteOrderItem_Input" />
+    </message>
+    <message name="DeleteOrderItem_Output">
+        <part name="DeleteOrderItem_Output" element="tns:DeleteOrderItem_Output" />
+    </message>
+    <message name="InsertOrderItem_Input">
+        <part name="InsertOrderItem_Input" element="tns:InsertOrderItem_Input" />
+    </message>
+    <message name="InsertOrderItem_Output">
+        <part name="InsertOrderItem_Output" element="tns:InsertOrderItem_Output" />
+    </message>
+    <message name="UpdateOrderItem_Input">
+        <part name="UpdateOrderItem_Input" element="tns:UpdateOrderItem_Input" />
+    </message>
+    <message name="UpdateOrderItem_Output">
+        <part name="UpdateOrderItem_Output" element="tns:UpdateOrderItem_Output" />
+    </message>
+    <message name="SynchronizeOrderItem_Input">
+        <part name="SynchronizeOrderItem_Input" element="tns:SynchronizeOrderItem_Input" />
+    </message>
+    <message name="SynchronizeOrderItem_Output">
+        <part name="SynchronizeOrderItem_Output" element="tns:SynchronizeOrderItem_Output" />
+    </message>
+    <portType name="OrderPort">
+        <operation name="SynchronizeOrder">
+            <input message="tns:SynchronizeOrder_Input" />
+            <output message="tns:SynchronizeOrder_Output" />
+        </operation>
+        <operation name="DeleteOrder">
+            <input message="tns:DeleteOrder_Input" />
+            <output message="tns:DeleteOrder_Output" />
+        </operation>
+        <operation name="GetOrderById">
+            <input message="tns:GetOrderById_Input" />
+            <output message="tns:GetOrderById_Output" />
+        </operation>
+        <operation name="UpdateOrder">
+            <input message="tns:UpdateOrder_Input" />
+            <output message="tns:UpdateOrder_Output" />
+        </operation>
+        <operation name="GetOrder">
+            <input message="tns:GetOrder_Input" />
+            <output message="tns:GetOrder_Output" />
+        </operation>
+        <operation name="InsertOrder">
+            <input message="tns:InsertOrder_Input" />
+            <output message="tns:InsertOrder_Output" />
+        </operation>
+    </portType>
+    <portType name="OrderItemPort">
+        <operation name="GetOrderItemById">
+            <input message="tns:GetOrderItemById_Input" />
+            <output message="tns:GetOrderItemById_Output" />
+        </operation>
+        <operation name="GetOrderItem">
+            <input message="tns:GetOrderItem_Input" />
+            <output message="tns:GetOrderItem_Output" />
+        </operation>
+        <operation name="DeleteOrderItem">
+            <input message="tns:DeleteOrderItem_Input" />
+            <output message="tns:DeleteOrderItem_Output" />
+        </operation>
+        <operation name="InsertOrderItem">
+            <input message="tns:InsertOrderItem_Input" />
+            <output message="tns:InsertOrderItem_Output" />
+        </operation>
+        <operation name="UpdateOrderItem">
+            <input message="tns:UpdateOrderItem_Input" />
+            <output message="tns:UpdateOrderItem_Output" />
+        </operation>
+        <operation name="SynchronizeOrderItem">
+            <input message="tns:SynchronizeOrderItem_Input" />
+            <output message="tns:SynchronizeOrderItem_Output" />
+        </operation>
+    </portType>
+
+    <binding name="OrderPort" type="tns:OrderPort">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+        <operation name="SynchronizeOrder">
+            <soap:operation soapAction="document/http://siebel.com/OrderManagement/Order:SynchronizeOrder" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+        <operation name="DeleteOrder">
+            <soap:operation soapAction="document/http://siebel.com/OrderManagement/Order:DeleteOrder" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+        <operation name="GetOrderById">
+            <soap:operation soapAction="document/http://siebel.com/OrderManagement/Order:GetOrderById" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+        <operation name="UpdateOrder">
+            <soap:operation soapAction="document/http://siebel.com/OrderManagement/Order:UpdateOrder" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+        <operation name="GetOrder">
+            <soap:operation soapAction="document/http://siebel.com/OrderManagement/Order:GetOrder" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+        <operation name="InsertOrder">
+            <soap:operation soapAction="document/http://siebel.com/OrderManagement/Order:InsertOrder" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+    </binding>
+    <binding name="OrderItemPort" type="tns:OrderItemPort">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+        <operation name="GetOrderItemById">
+            <soap:operation soapAction="document/http://siebel.com/OrderManagement/Order:GetOrderItemById" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+        <operation name="GetOrderItem">
+            <soap:operation soapAction="document/http://siebel.com/OrderManagement/Order:GetOrderItem" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+        <operation name="DeleteOrderItem">
+            <soap:operation soapAction="document/http://siebel.com/OrderManagement/Order:DeleteOrderItem" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+        <operation name="InsertOrderItem">
+            <soap:operation soapAction="document/http://siebel.com/OrderManagement/Order:InsertOrderItem" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+        <operation name="UpdateOrderItem">
+            <soap:operation soapAction="document/http://siebel.com/OrderManagement/Order:UpdateOrderItem" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+        <operation name="SynchronizeOrderItem">
+            <soap:operation soapAction="document/http://siebel.com/OrderManagement/Order:SynchronizeOrderItem" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+    </binding>
+
+    <service name="OrderWebService">
+        <port binding="tns:OrderPort" name="OrderPort">
+            <soap:address location="http://10.0.1.15/eai_enu/start.swe?SWEExtSource=WebService&amp;SWEExtCmd=Execute&amp;WSSOAP=1" />
+        </port>
+        <port binding="tns:OrderItemPort" name="OrderItemPort">
+            <soap:address location="http://10.0.1.15/eai_enu/start.swe?SWEExtSource=WebService&amp;SWEExtCmd=Execute&amp;WSSOAP=1" />
+        </port>
+    </service>
+</definitions>
+
