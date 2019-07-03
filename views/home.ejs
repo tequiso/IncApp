@@ -22,6 +22,8 @@
 		  if(result.length > 0){
 				result.each(function(){
 				item.push($(this).attr('id'));
+				var x = $(this).attr('id');
+				//alert(x);
 			  });
 			  sendResponse(item);
 			}
@@ -30,12 +32,17 @@
 			}
 		 });
 		  function sendResponse(item) {
-			$.ajax({
+		    $.ajax({
 			  type:'post',
 			  url:"/deleteMany",
 			  data:{incidents:item},
 			  success:function(data){
-				location.reload();
+				//alert("success: " + data);
+				window.location.reload(true);								
+			  },
+			  error: function(xhr, status, e){
+				//window.location.reload(true);
+				console.log(xhr.responseText + "status: " + status + "error: " + e);
 			  }
 			});
 		  }
@@ -68,7 +75,7 @@
 			<div class="divTableBody">
 				<% for(var i=0; i < incidents.length; i++) { %>
 					<div class="divTableRow">
-						<div class="divTableCell"><input type="checkbox" id="<%= incidents[i].id_num%>" name="<%= incidents[i].id_num%>" /></div>
+						<div class="divTableCell"><input type="checkbox" id="<%= incidents[i].id%>" name="<%= incidents[i].id%>" /></div>
 						<div class="divTableCell"><a href="/show/<%= incidents[i].id_num%>"><%= incidents[i].area%><%= incidents[i].id_num%></a></div>
 						<div class="divTableCell"><%= incidents[i].raisedby%></div>
 						<div class="divTableCell"><%= incidents[i].location%></div>
