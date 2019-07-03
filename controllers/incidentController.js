@@ -31,13 +31,14 @@ incidentController.openlist = function (req, res) {
 // Show incidents by id
 incidentController.show = function (req, res) {
     var id = parseInt(req.params.id);
-    console.log(id);
+    console.log("sks show: " + id);
 
-    Incident.findOne({ id_num: id }).sort({ 'updates.updated': -1 }).exec(function (err, incidents) {
+    Incident.findOne({ id_num: id }).exec(function (err, incidents) {
         if (err) {
             console.log("Error:", err);
         }
         else {
+            console.log("show incidents: " + incidents);
             var pipeline = [
                 {
                     "$match": { "id_num": id }
@@ -77,7 +78,7 @@ incidentController.show = function (req, res) {
                     if (req.session.user != "undefined") {
                         user = req.session.user.name;
                         //console.log("Pagination UserName: " + req.query.user);
-                        console.log("Pagination : " + req.session.user.name);
+                        console.log("show incUpdates : " + incidentUpdates);
                     }
                     res.render("../views/show", { incidents: incidents, incidentUpdates: incidentUpdates, userName: user });
                 }
@@ -173,7 +174,7 @@ incidentController.deleteMany = function (req, res) {
             console.log(err);
         }
         else {
-            res.redirect("/");
+            res.redirect("/home");
         }
     });
 };
